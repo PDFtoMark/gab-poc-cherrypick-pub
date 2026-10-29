@@ -1,0 +1,11 @@
+name: pr-watch
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+permissions:
+  contents: read
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "pull_request workflow ran for ${{ github.event.pull_request.number }} head=${{ github.event.pull_request.head.ref }}"
